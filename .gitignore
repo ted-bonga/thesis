@@ -66,3 +66,19 @@ Thumbs.db
 _build/
 _output/
 _temp/
+
+# Exclude image files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tiff
+*.tif
+*.svg
+
+# Exclude specific folders for images (if any)
+images/
+img/
+graphics/
+figures/
