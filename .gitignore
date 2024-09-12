@@ -24,7 +24,6 @@
 # Temporary files
 *.dvi
 *.ps
-*.pdf
 *.svg
 *.xdv
 
