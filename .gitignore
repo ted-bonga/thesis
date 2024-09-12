@@ -1,0 +1,68 @@
+# LaTeX intermediate and output files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.idx
+*.ilg
+*.ind
+*.inx
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.maf
+*.mtc*
+*.nav
+*.snm
+*.vrb
+
+# Temporary files
+*.dvi
+*.ps
+*.pdf
+*.svg
+*.xdv
+
+# Editor and OS files
+*~
+.*.swp
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+*.bkp
+
+# Miscellaneous
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.loa
+*.lol
+*.lop
+*.lot
+*.maf
+*.mlf
+*.mlt
+*.sta
+
+# BibTeX generated files
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
+# Subdirectories for auxiliary files
+_build/
+_output/
+_temp/
