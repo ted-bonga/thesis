@@ -1,2 +1,62 @@
-In questo breve capitolo verranno analizzati gli strumenti utilizzati per poter realizzare e
-testare il Portale.
+Nel contesto dello sviluppo di applicazioni web moderne, la necessità di interazioni in tempo reale è diventata sempre più cruciale. In questo capitolo, verrà esplorata la tecnologia WebSocket, che consente una comunicazione bidirezionale tra client e server. In particolare, ci concentreremo su come questa tecnologia possa essere utilizzata per rendere dinamico il cambiamento di stati delle charge-point in un'applicazione Vue.js. Attraverso un'analisi dettagliata delle classi e delle strutture implementate, dimostreremo come la tecnologia WebSocket possa migliorare l'esperienza utente, permettendo aggiornamenti immediati dello stato delle stazioni di ricarica senza necessità di ricaricare la pagina. Questo approccio non solo ottimizza le prestazioni dell'applicazione, ma contribuisce anche a una gestione più efficiente delle risorse in un contesto di Smart City.
+
+\subsection{WebSocket}
+Un task iniziale fu quello di studiare come utilizzare la tecnologia Websocket per rendere dinamico il cambiamento degli stati di una charge-point. Questo è cruciale per migliorare l’esperienza utente, poiché consente di visualizzare aggiornamenti in tempo reale senza la necessità di ricaricare la pagina. Ad esempio, gli stati di una charge-point possono variare da "available" a "preparing", "charging", "finishing", e nuovamente a "available".
+
+Implementando un server WebSocket, è possibile stabilire una connessione persistente tra il client e il server. Ciò consente al server di inviare messaggi al client non appena vi sono cambiamenti nello stato delle charge-point. In Vue.js, ciò si traduce in una reattività immediata dell'interfaccia utente, migliorando notevolmente l'interazione e l'usabilità dell'applicazione. Utilizzando le funzionalità di Vue.js come il binding dei dati, si possono aggiornare dinamicamente le informazioni visualizzate senza necessità di aggiornamenti manuali della pagina.\
+Questo approccio non solo ottimizza la performance dell'app, ma rende anche l'esperienza utente più fluida e intuitiva. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=12cm, height=6cm]{image.jpeg}
+    \caption{Architettura WebSocket con Pusher}
+    \label{fig:websocket_architecture} 
+    \vspace{0.3cm} % Aggiunge uno spazio verticale di 0.5 cm tra le immagini
+    \includegraphics[width=12cm, height=6cm]{image1.jpeg}
+    \caption{Collegamento al nostro backend al server di Pusher per utilizzare la tecnologia Websocket}
+    \label{fig:websocket_architecture}
+ 
+\end{figure}
+\newpage
+
+\subsection{Confronto tra WebSocket, Polling System e Pushing System}
+Nel contesto delle applicazioni web in tempo reale, esistono diversi approcci per la comunicazione tra server e client. Tra questi, i principali sono:
+\begin{itemize}
+\item \textbf{Polling System}: il client invia richieste periodiche al server per verificare la presenza di nuovi dati
+\item \textbf{Pushing System (WebSocket}: il server può inviare aggiornamenti in tempo reale al client non appena i dati cambiano.
+\end{itemize}
+
+\subsubsection{Polling System}
+Il \textit{Polling} è un metodo tradizionale in cui il client esegue richieste HTTP al server a intervalli regolari ( per esempio ogni dieci secondi ) per ottenere aggiornamenti. Sebbene sia \textit{semplice} da implementare, presenta diversi svantaggi:
+\begin{itemize}
+\item Aumento del carico sul server, poiché ogni richiesta viene trattata come una nuova connessione
+\item Ritardo negli aggiornamenti, poiché i dati vengono aggiornati solo a intervalli predefiniti
+\item Inefficienza nel consumo di banda, in quanto molte richieste potrebbero non restituire dati aggiornati
+\end{itemize}
+
+\subsection{Websocket}
+Con l'uso di Websocket, si stabilisce una connessione persistente tra client e server, consentendo un flusso di dati bidirezionale senza la necessità di nuove richieste HTTP. Questo approccio offre diverse vantaggi rispetto al \textit{Polling}:
+\begin{itemize}
+\item \textbf{Aggiornamento in tempo reale}: il server può notificare immediatamente i client sui cambiamenti di stato
+\item \textbf{Riduzione del carico sul server}: una singola connessione rimane aperta, riducendo l'overhead delle richieste HTTP ripetute.
+\item \textbf{Minore latenza}: il tempo di risposta tra aggiornamenti è praticamente immediato.
+\end{itemize}
+Nel caso della gestione delle charge-point, l'utilizzo di WebSocket con Pusher permette di aggiornare in tempo reale lo stato delle stazioni, garantendo una sincronizzazione ottimale tra client e server.
+
+\textbf{Confronto tra i metodi} \\
+La seguente tabella riassume le principali differenze tra questi approcci:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|c|c|c|c|}
+        \hline
+        \textbf{Metodo} & \textbf{Comunicazione} & \textbf{Efficienza} & \textbf{Latenza} & \textbf{Complessità} \\
+        \hline
+        Polling & Unidirezionale & Bassa & Alta & Bassa \\
+        \hline
+        WebSocket & Bidirezionale & Alta & Bassa & Media \\
+        \hline
+    \end{tabular}
+    \caption{Confronto tra Polling, WebSocket e SSE}
+    \label{tab:confronto_ws}
+\end{table}
+\\
+L'adozione di Websocket si rivela dunque la scelta più scelta più efficace per applicazioni che necessitano di aggiornamenti in tempo reale, come il monitoraggio dinamico delle charge-point.

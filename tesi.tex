@@ -1,17 +1,17 @@
 % Classe appositamente creata per tesi di Ingegneria Informatica all'università Roma Tre
 \documentclass{TesiDiaUniroma3}
+
 % --- INIZIO dati relativi al template TesiDiaUniroma3
 % dati obbligatori, necessari al frontespizio
 %%\titolo{Questo \`e il titolo della tesi}
-\titolo{Tesi Bozza}
-\autore{Ted Jevel Quilenderino Bong}
+\titolo{Progettazione e sviluppo di un'interfaccia web in Laravel e Vue.js per il monitoraggio interattivo e la gestione di stazioni di ricarica per veicoli elettrici}
+\autore{Ted Jevel Quilenderino Bonga}
 \matricola{546569}
 \relatore{Prof. Paolo Merialdo}
-\relatoreEsterno{Prof. Silvia Canale}
-%%\correlatore{Prof. Nome Cognome} % modifica anche TesiDiaUniroma3.cls se vuoi avere un correlatore
+\correlatore{Prof.sa Silvia Canale} % modifica anche TesiDiaUniroma3.cls se vuoi avere un correlatore
 \annoAccademico{2023-2024}
 
-% dati opzionali
+ % dati opzionali
 \dedica{Questa \`e la dedica} % solo se nel documento si usa il comando \generaDedica
 % --- FINE dati relativi al template TesiDiaUniroma3
 
@@ -23,6 +23,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{xcolor}
+%\usepackage[backend=biber,style=alphabetic]{biblatex} 
+
 % --- FINE riachiamo di pacchetti di utilità
 
 \begin{document}
@@ -31,7 +33,7 @@
 \generaFrontespizio
 \generaDedica
 \ringraziamenti{ringraziamenti}	% inserisce i ringraziamenti e li prende in questo caso da ringraziamenti.tex
-%/\introduzione{introduzione}		% inserisce l'introduzione e la prende in questo caso da introduzione.tex
+\terminologia{terminologia}		% inserisce l'introduzione e la prende in questo caso da introduzione.tex
 %\generaIndice
 %\generaIndiceFigure
 
@@ -41,16 +43,23 @@
 % 1) il titolo del capitolo
 % 2) il nome del file tex (senza estensione) che contiene il capitolo. Tale nome \`e usato anche come label del capitolo\documentclass{article}
 
-\title{Tesi Bozza}
+\title{Progettazione e sviluppo di un'interfaccia web in Laravel e Vue.js per il monitoraggio interattivo e la gestione di stazioni di ricarica per veicoli elettrici}
 \author{Ted Jevel Quilenderino Bonga}
-\date {Settembre 2024}
+\date {Ottobre 2024}
 %%\begin{document}
 \tableofcontents
 \maketitle 
 \newpage
 \capitolo{Introduzione}{introduzione}
-\capitolo{Architettura di riferimento e tecnologie utilizzate}{capitolo1}
-\capitolo{}{capitolo2}
+\capitolo{Tecnologie utilizzate}{capitolo1}
+\capitolo{Architettura di riferimento}{capitolo2}
+\capitolo{Analisi dei Requisiti}{capitolo3}
+\capitolo{Progettazione dell'Interfaccia Utente}{capitolo4}
+\capitolo{Implementazione della Soluzione}{capitolo5}
+\capitolo{Conclusioni e sviluppi futuri}{capitolo6}
+\cite{ocpi}
+
+\bibliography{bibliografia}
 
 
 \end{document}

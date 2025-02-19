@@ -37,6 +37,7 @@
 % Line spacing
 \RequirePackage{setspace}
 
+
 % pacchetti per i font
 \usepackage[T1]{fontenc}
 % interlinea
@@ -73,9 +74,7 @@
 \newcommand{\matricola}[1]{\renewcommand{\@matricola}{#1}}
 % Relatore (Titolo Nome Cognome, es: Prof. Pippo Caruso)
 \newcommand{\@relatore}{Prof. Nome Cognome}
-\newcommand{\@relatoreEsterno}{Prof. Nome Cognome}
 \newcommand{\relatore}[1]{\renewcommand{\@relatore}{#1}}
-\newcommand{\relatoreEsterno}[1]{\renewcommand{\@relatoreEsterno}{#1}}
 % Correlatore (Titolo Nome Cognome, es: Dott. Pippo Caruso)
 \newcommand{\@correlatore}{}
 \newcommand{\correlatore}[1]{\renewcommand{\@correlatore}{#1}}
@@ -92,7 +91,7 @@
       \vspace{10mm}
       {\Large UNIVERSIT\`A DEGLI STUDI ROMA TRE} \\
       \vspace{5mm}
-      {\LARGE Dipartimento di Ingegneria} \\
+      {\LARGE Dipartimento di Ingegneria Informatica} \\
       {\Large Corso di Laurea in Ingegneria Informatica} \\
       \vspace{15mm}
      %% {\LARGE Tesi Di Laurea} \\
@@ -106,7 +105,7 @@
 % scommenta questo blocco...
 %
       {\large Relatore \\ \textbf{\@relatore}} \\
-      {\large Relatrice esterna\\ \textbf{\@relatoreEsterno}} \\
+       {\large Relatrice esterna \\ \textbf{\@correlatore}} \\
 %
 % ... oppure scommenta questo blocco
 %
@@ -134,7 +133,7 @@
 
 % Comandi riguardanti l'inserimento di capitoli
 \newcommand{\ringraziamenti}[1]{\newpage \chapter*{Ringraziamenti} \input{#1}}
-\newcommand{\introduzione}[1]{\newpage \chapter{Introduzione} \input{#1}}
+\newcommand{\terminologia}[1]{\newpage \chapter{Terminologia e definizioni} \input{#1}}
 \newcommand{\conclusioni}[1]{\newpage \chapter{Conclusioni e sviluppi futuri} \markboth{CONCLUSIONI E SVILUPPI FUTURI}{CONCLUSIONI E SVILUPPI FUTURI} \input{#1}}
 \newcommand{\capitolo}[2]{\newpage \chapter{#1}\label{cap:#2}\input{#2}}
 
